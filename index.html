@@ -1,0 +1,1164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DocFlow - Professional PDF to Excel Conversion | Yuvraj</title>
+    <link rel="icon" type="image/jpeg" href="https://nyc3.digitaloceanspaces.com/bhindi-drive/files/c23a2824-5d00-4652-845b-1aab61bf20b3/2025-11-30T22-59-12-509Z-093b4798-nano-banana-pro_1764543552413.jpg">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #fff;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #c41e3a 0%, #8b0000 100%);
+            color: white;
+            padding: 80px 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 1px, transparent 1px);
+            background-size: 50px 50px;
+            animation: moveBackground 20s linear infinite;
+        }
+        
+        @keyframes moveBackground {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(50px, 50px); }
+        }
+        
+        .header > * {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .logo-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 10px;
+            animation: fadeInDown 1s ease-out;
+        }
+        
+        .logo-image {
+            width: 80px;
+            height: 80px;
+            border-radius: 15px;
+            background: white;
+            padding: 10px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+        }
+        
+        .logo {
+            font-size: 3.5em;
+            font-weight: bold;
+            letter-spacing: 3px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .tagline {
+            font-size: 1.4em;
+            margin-bottom: 15px;
+            opacity: 0.95;
+            animation: fadeInUp 1s ease-out 0.3s both;
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .seller-badge {
+            display: inline-block;
+            background: rgba(255,255,255,0.25);
+            backdrop-filter: blur(10px);
+            padding: 10px 20px;
+            border-radius: 25px;
+            margin: 15px 0;
+            font-size: 1.1em;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+            animation: fadeInUp 1s ease-out 0.5s both;
+            transition: all 0.3s ease;
+        }
+        
+        .seller-badge:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 30px rgba(0,0,0,0.3);
+            background: rgba(255, 255, 255, 0.35);
+        }
+        
+        .stats {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin: 20px 0;
+            flex-wrap: wrap;
+            animation: fadeInUp 1s ease-out 0.7s both;
+        }
+        
+        .stat-item {
+            background: rgba(255,255,255,0.15);
+            backdrop-filter: blur(10px);
+            padding: 15px 25px;
+            border-radius: 10px;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .stat-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s;
+        }
+        
+        .stat-item:hover::before {
+            left: 100%;
+        }
+        
+        .stat-item:hover {
+            transform: translateY(-10px) scale(1.05);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+            background: rgba(255, 255, 255, 0.25);
+            border-color: rgba(255, 255, 255, 0.4);
+        }
+        
+        .stat-number {
+            font-size: 2em;
+            font-weight: bold;
+            display: block;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+        
+        .stat-label {
+            font-size: 0.9em;
+            opacity: 0.9;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background: #1DBF73;
+            color: white;
+            padding: 18px 45px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            font-size: 1.2em;
+            margin-top: 25px;
+            transition: all 0.3s;
+            box-shadow: 0 10px 30px rgba(29, 191, 115, 0.4);
+            border: 3px solid transparent;
+            animation: fadeInUp 1s ease-out 0.9s both, pulse 2s ease-in-out 2s infinite;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        @keyframes pulse {
+            0%, 100% {
+                box-shadow: 0 10px 30px rgba(29, 191, 115, 0.4);
+            }
+            50% {
+                box-shadow: 0 10px 40px rgba(29, 191, 115, 0.6);
+            }
+        }
+        
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.2);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+        
+        .cta-button:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+        
+        .cta-button:hover {
+            background: #19a463;
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 15px 40px rgba(29, 191, 115, 0.6);
+            border-color: rgba(255,255,255,0.3);
+        }
+        
+        .section {
+            padding: 60px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .section-alt {
+            background: #f8f9fa;
+        }
+        
+        .section h2 {
+            text-align: center;
+            font-size: 2.5em;
+            margin-bottom: 40px;
+            color: #c41e3a;
+        }
+        
+        /* About Section */
+        .about-container {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 50px;
+            align-items: center;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        @media (max-width: 768px) {
+            .about-container {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+        }
+        
+        .about-image {
+            text-align: center;
+        }
+        
+        .about-image img {
+            width: 100%;
+            max-width: 350px;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+        }
+        
+        .about-content h3 {
+            font-size: 2em;
+            color: #c41e3a;
+            margin-bottom: 20px;
+        }
+        
+        .about-content p {
+            font-size: 1.1em;
+            line-height: 1.8;
+            color: #555;
+            margin-bottom: 20px;
+        }
+        
+        .credentials {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+        
+        .credential-item {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 4px solid #1DBF73;
+        }
+        
+        .credential-item strong {
+            color: #c41e3a;
+            display: block;
+            margin-bottom: 5px;
+            font-size: 1.1em;
+        }
+        
+        /* Before/After Section */
+        .before-after-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-top: 40px;
+        }
+        
+        .comparison-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+        
+        .comparison-header {
+            background: #c41e3a;
+            color: white;
+            padding: 15px;
+            text-align: center;
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+        
+        .comparison-content {
+            padding: 30px;
+        }
+        
+        .before-box, .after-box {
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+        }
+        
+        .before-box {
+            background: #fff3cd;
+            border: 2px dashed #856404;
+        }
+        
+        .after-box {
+            background: #d4edda;
+            border: 2px solid #1DBF73;
+        }
+        
+        .box-label {
+            font-weight: bold;
+            margin-bottom: 10px;
+            font-size: 1.1em;
+        }
+        
+        .before-label {
+            color: #856404;
+        }
+        
+        .after-label {
+            color: #1DBF73;
+        }
+        
+        .arrow-down {
+            text-align: center;
+            font-size: 2em;
+            color: #1DBF73;
+            margin: 10px 0;
+        }
+        
+        /* Process Timeline */
+        .process-timeline {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .process-step {
+            text-align: center;
+            padding: 30px 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.08);
+            position: relative;
+            transition: transform 0.3s;
+        }
+        
+        .process-step:hover {
+            transform: translateY(-5px);
+        }
+        
+        .step-number {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #1DBF73 0%, #19a463 100%);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8em;
+            font-weight: bold;
+            margin: 0 auto 20px;
+        }
+        
+        .process-step h3 {
+            color: #c41e3a;
+            margin-bottom: 15px;
+            font-size: 1.3em;
+        }
+        
+        .process-step p {
+            color: #555;
+        }
+        
+        /* Services */
+        .service-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+        }
+        
+        .service-card {
+            background: white;
+            padding: 25px;
+            border-radius: 8px;
+            border-left: 4px solid #1DBF73;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+            transition: transform 0.3s;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.12);
+        }
+        
+        .service-icon {
+            font-size: 2.5em;
+            margin-bottom: 15px;
+        }
+        
+        .service-card h3 {
+            color: #c41e3a;
+            margin-bottom: 10px;
+            font-size: 1.3em;
+        }
+        
+        /* Google Form Section */
+        .form-section {
+            background: white;
+            padding: 60px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .form-section h2 {
+            text-align: center;
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            color: #c41e3a;
+        }
+        
+        .form-subtitle {
+            text-align: center;
+            font-size: 1.2em;
+            color: #555;
+            margin-bottom: 40px;
+        }
+        
+        .form-container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: linear-gradient(135deg, #c41e3a 0%, #8b0000 100%);
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+        }
+        
+        .form-instructions {
+            background: rgba(255,255,255,0.15);
+            backdrop-filter: blur(10px);
+            padding: 25px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            color: white;
+        }
+        
+        .form-instructions h3 {
+            margin-bottom: 15px;
+            font-size: 1.4em;
+        }
+        
+        .form-instructions ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        .form-instructions li {
+            padding: 8px 0;
+            padding-left: 30px;
+            position: relative;
+        }
+        
+        .form-instructions li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+        
+        .form-embed {
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            text-align: center;
+        }
+        
+        .form-embed h3 {
+            color: #c41e3a;
+            font-size: 1.8em;
+            margin-bottom: 20px;
+        }
+        
+        .form-embed p {
+            color: #555;
+            font-size: 1.1em;
+            margin-bottom: 30px;
+        }
+        
+        .form-link {
+            display: inline-block;
+            padding: 15px 40px;
+            background: #1DBF73;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            font-size: 1.1em;
+            transition: all 0.3s;
+            box-shadow: 0 5px 20px rgba(29, 191, 115, 0.4);
+        }
+        
+        .form-link:hover {
+            background: #19a463;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(29, 191, 115, 0.5);
+        }
+        
+        /* FAQ Section */
+        .faq-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .faq-item {
+            background: white;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+            overflow: hidden;
+        }
+        
+        .faq-question {
+            background: #f8f9fa;
+            padding: 20px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 1.1em;
+            color: #333;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background 0.3s;
+        }
+        
+        .faq-question:hover {
+            background: #e9ecef;
+        }
+        
+        .faq-icon {
+            color: #1DBF73;
+            font-size: 1.5em;
+        }
+        
+        .faq-answer {
+            padding: 20px;
+            color: #555;
+            line-height: 1.8;
+            border-top: 1px solid #e9ecef;
+        }
+        
+        /* Reviews */
+        .review-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .review-card {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+        }
+        
+        .review-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        
+        .reviewer-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: #1DBF73;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 1.5em;
+            margin-right: 15px;
+        }
+        
+        .reviewer-info h4 {
+            margin: 0;
+            color: #333;
+        }
+        
+        .stars {
+            color: #ffa500;
+            font-size: 1.2em;
+        }
+        
+        .review-text {
+            color: #555;
+            line-height: 1.6;
+            font-style: italic;
+        }
+        
+        /* Pricing */
+        .pricing {
+            background: linear-gradient(135deg, #1DBF73 0%, #19a463 100%);
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+        }
+        
+        .pricing h2 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            color: white;
+        }
+        
+        .price-tag {
+            font-size: 3em;
+            font-weight: bold;
+            margin: 20px 0;
+        }
+        
+        .price-details {
+            font-size: 1.2em;
+            margin-bottom: 30px;
+        }
+        
+        /* Contact */
+        .contact {
+            padding: 60px 20px;
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .contact h2 {
+            font-size: 2.5em;
+            margin-bottom: 30px;
+            color: #c41e3a;
+        }
+        
+        .contact-info {
+            font-size: 1.2em;
+            margin: 20px 0;
+        }
+        
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-top: 30px;
+        }
+        
+        .contact-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: #f8f9fa;
+            padding: 15px 25px;
+            border-radius: 10px;
+            text-decoration: none;
+            color: #333;
+            font-weight: 600;
+            transition: all 0.3s;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+        }
+        
+        .contact-link:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+        }
+        
+        .contact-link.whatsapp {
+            background: #25D366;
+            color: white;
+        }
+        
+        .contact-link.linkedin {
+            background: #0077B5;
+            color: white;
+        }
+        
+        .contact-link.fiverr {
+            background: #1DBF73;
+            color: white;
+        }
+        
+        /* Footer */
+        .footer {
+            background: #404145;
+            color: white;
+            text-align: center;
+            padding: 30px 20px;
+        }
+        
+        .footer-links {
+            margin-top: 15px;
+        }
+        
+        .footer-links a {
+            color: #1DBF73;
+            text-decoration: none;
+            margin: 0 15px;
+        }
+        
+        @media (max-width: 768px) {
+            .logo-container {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .logo {
+                font-size: 2.5em;
+            }
+            
+            .stats {
+                gap: 15px;
+            }
+            
+            .stat-item {
+                padding: 15px 20px;
+            }
+            
+            .stat-number {
+                font-size: 1.8em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="logo-container">
+            <img src="https://nyc3.digitaloceanspaces.com/bhindi-drive/files/c23a2824-5d00-4652-845b-1aab61bf20b3/2025-11-30T22-59-12-509Z-093b4798-nano-banana-pro_1764543552413.jpg" alt="DocFlow Logo" class="logo-image">
+            <div class="logo">DocFlow</div>
+        </div>
+        <div class="tagline">Professional PDF to Excel Conversion Services</div>
+        <div class="seller-badge">⭐ Level 1 Seller | Yuvraj</div>
+        
+        <div class="stats">
+            <div class="stat-item">
+                <span class="stat-number">5.0</span>
+                <span class="stat-label">Rating</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">11</span>
+                <span class="stat-label">Orders</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">100%</span>
+                <span class="stat-label">Response Rate</span>
+            </div>
+        </div>
+        
+        <a href="https://www.fiverr.com/s/o8mZ5eA" target="_blank" class="cta-button">Order on Fiverr</a>
+    </div>
+    
+    <!-- About Section -->
+    <div class="section">
+        <h2>About Me</h2>
+        <div class="about-container">
+            <div class="about-image">
+                <img src="https://nyc3.digitaloceanspaces.com/bhindi-drive/files/6acccab2-3e41-44d6-86bc-b0d17ade17ec/2025-11-30T22-33-51-310Z-6ad1fb76-chat-image-1764542031291-0.jpg" alt="Yuvraj - DocFlow Founder">
+            </div>
+            <div class="about-content">
+                <h3>Hi, I'm Yuvraj! 👋</h3>
+                <p>I'm a data conversion specialist with a strong foundation in finance and accounting. I hold a <strong>B.Com (Hons) in Accounts & Finance</strong>, which gives me a deep understanding of financial documents, statements, and complex data structures.</p>
+                
+                <p>My journey in data operations began with an internship at <strong>Forage AI</strong>, where I honed my skills in data processing and conversion. Since then, I've built <strong>2+ years of specialized experience</strong> in converting PDFs to Excel, working with <strong>20+ global clients</strong> across various industries.</p>
+                
+                <p>What sets me apart is my commitment to <strong>100% accuracy</strong> and attention to detail. I don't rely on automated tools—every conversion is done manually to ensure your data is perfectly organized and ready for analysis. Whether it's financial statements, invoices, research data, or complex tables, I handle each project with the same level of care and professionalism.</p>
+                
+                <div class="credentials">
+                    <div class="credential-item">
+                        <strong>🎓 Education</strong>
+                        B.Com (Hons) in Accounts & Finance
+                    </div>
+                    <div class="credential-item">
+                        <strong>💼 Experience</strong>
+                        Data Operations Intern at Forage AI
+                    </div>
+                    <div class="credential-item">
+                        <strong>⏱️ Expertise</strong>
+                        2+ Years in Data Conversion
+                    </div>
+                    <div class="credential-item">
+                        <strong>🌍 Clients</strong>
+                        20+ Global Clients Served
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Before/After Section -->
+    <div class="section section-alt">
+        <h2>See The Transformation</h2>
+        <p style="text-align: center; font-size: 1.2em; margin-bottom: 30px; color: #555;">From messy PDFs to organized Excel spreadsheets</p>
+        
+        <div class="before-after-grid">
+            <div class="comparison-card">
+                <div class="comparison-header">Financial Statements</div>
+                <div class="comparison-content">
+                    <div class="before-box">
+                        <div class="box-label before-label">❌ BEFORE</div>
+                        <p>📄 Scanned PDF with tables<br>
+                        🚫 Non-editable data<br>
+                        ⚠️ Mixed formatting<br>
+                        😓 Manual data entry needed</p>
+                    </div>
+                    <div class="arrow-down">⬇️</div>
+                    <div class="after-box">
+                        <div class="box-label after-label">✅ AFTER</div>
+                        <p>📊 Clean Excel spreadsheet<br>
+                        ✏️ Fully editable cells<br>
+                        📈 Organized columns/rows<br>
+                        🎯 Ready for analysis</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="comparison-card">
+                <div class="comparison-header">Invoice Data</div>
+                <div class="comparison-content">
+                    <div class="before-box">
+                        <div class="box-label before-label">❌ BEFORE</div>
+                        <p>📄 Multiple PDF invoices<br>
+                        🔢 Scattered data<br>
+                        ⏰ Hours of manual work<br>
+                        😫 Error-prone copying</p>
+                    </div>
+                    <div class="arrow-down">⬇️</div>
+                    <div class="after-box">
+                        <div class="box-label after-label">✅ AFTER</div>
+                        <p>📊 Single Excel database<br>
+                        🎯 Structured format<br>
+                        ⚡ Instant calculations<br>
+                        ✨ 100% accurate data</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="comparison-card">
+                <div class="comparison-header">Research Data</div>
+                <div class="comparison-content">
+                    <div class="before-box">
+                        <div class="box-label before-label">❌ BEFORE</div>
+                        <p>📄 Complex PDF tables<br>
+                        🔀 Merged cells<br>
+                        📑 Multi-page documents<br>
+                        🤯 Difficult to extract</p>
+                    </div>
+                    <div class="arrow-down">⬇️</div>
+                    <div class="after-box">
+                        <div class="box-label after-label">✅ AFTER</div>
+                        <p>📊 Organized Excel sheets<br>
+                        ✅ Proper cell structure<br>
+                        📈 Sortable & filterable<br>
+                        🚀 Analysis-ready data</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Process Timeline -->
+    <div class="section">
+        <h2>How It Works</h2>
+        <p style="text-align: center; font-size: 1.2em; margin-bottom: 30px; color: #555;">Simple 4-step process to get your data converted</p>
+        
+        <div class="process-timeline">
+            <div class="process-step">
+                <div class="step-number">1</div>
+                <h3>Send Your Files</h3>
+                <p>Upload your PDF files or images through Fiverr. All file formats accepted.</p>
+            </div>
+            
+            <div class="process-step">
+                <div class="step-number">2</div>
+                <h3>I Review & Confirm</h3>
+                <p>I'll review your files and confirm the scope, timeline, and any special requirements.</p>
+            </div>
+            
+            <div class="process-step">
+                <div class="step-number">3</div>
+                <h3>Conversion Process</h3>
+                <p>I manually convert your data with 100% accuracy, maintaining all formatting and structure.</p>
+            </div>
+            
+            <div class="process-step">
+                <div class="step-number">4</div>
+                <h3>Delivery & Revisions</h3>
+                <p>Receive your Excel file within 24 hours. Free revisions until you're 100% satisfied!</p>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Services -->
+    <div class="section section-alt">
+        <h2>My Services</h2>
+        <div class="service-grid">
+            <div class="service-card">
+                <div class="service-icon">✅</div>
+                <h3>PDF to Excel</h3>
+                <p>Convert complex PDF tables into organized Excel spreadsheets with 100% accuracy</p>
+            </div>
+            
+            <div class="service-card">
+                <div class="service-icon">✅</div>
+                <h3>PDF to Word</h3>
+                <p>Transform PDF documents into editable Word files maintaining formatting</p>
+            </div>
+            
+            <div class="service-card">
+                <div class="service-icon">✅</div>
+                <h3>PDF Editing</h3>
+                <p>Professional PDF editing and formatting services</p>
+            </div>
+            
+            <div class="service-card">
+                <div class="service-icon">✅</div>
+                <h3>Image to Excel</h3>
+                <p>Extract data from images and convert to Excel format</p>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Google Form Section -->
+    <div class="form-section">
+        <h2>Submit Your Project</h2>
+        <p class="form-subtitle">Upload your PDF and get started instantly!</p>
+        
+        <div class="form-container">
+            <div class="form-instructions">
+                <h3>📋 How to Submit:</h3>
+                <ul>
+                    <li>Fill out the form with your project details</li>
+                    <li>Upload your PDF file (up to 50MB supported)</li>
+                    <li>Receive a quote within 2 hours</li>
+                    <li>Get your converted document within 24 hours</li>
+                    <li>100% satisfaction guaranteed or money back</li>
+                </ul>
+            </div>
+            
+            <div class="form-embed">
+                <h3>📄 Ready to Get Started?</h3>
+                <p>Click the button below to open the submission form and upload your files</p>
+                <a href="https://forms.google.com" target="_blank" class="form-link">Open Submission Form →</a>
+                <p style="margin-top: 20px; font-size: 0.9em; color: #999;">
+                    Or contact me directly via WhatsApp for immediate assistance
+                </p>
+            </div>
+        </div>
+    </div>
+    
+    <!-- FAQ Section -->
+    <div class="section">
+        <h2>Frequently Asked Questions</h2>
+        <div class="faq-container">
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>What file formats do you accept?</span>
+                    <span class="faq-icon">+</span>
+                </div>
+                <div class="faq-answer">
+                    I accept all PDF formats (scanned, digital, password-protected), images (JPG, PNG, TIFF), and even screenshots. If you have a special format, just message me and I'll let you know if I can work with it!
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>How long does the conversion take?</span>
+                    <span class="faq-icon">+</span>
+                </div>
+                <div class="faq-answer">
+                    Standard delivery is within 24 hours for most projects (25-50 pages). For larger projects, I'll provide a custom timeline. Need it faster? I offer express delivery options - just message me!
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>Is my data secure and confidential?</span>
+                    <span class="faq-icon">+</span>
+                </div>
+                <div class="faq-answer">
+                    Absolutely! Your data security is my top priority. All files are encrypted during transfer and storage. I never share your data with anyone, and all files are permanently deleted after delivery. I can also sign an NDA if required.
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>What if the conversion isn't perfect?</span>
+                    <span class="faq-icon">+</span>
+                </div>
+                <div class="faq-answer">
+                    I offer unlimited free revisions until you're 100% satisfied! If there are any errors or formatting issues, just let me know and I'll fix them immediately at no extra cost. Your satisfaction is guaranteed.
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>Can you handle complex tables and merged cells?</span>
+                    <span class="faq-icon">+</span>
+                </div>
+                <div class="faq-answer">
+                    Yes! I specialize in complex conversions including multi-page tables, merged cells, nested data, financial statements, and research documents. No project is too complicated - I handle it all manually to ensure 100% accuracy.
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>Do you offer bulk/volume discounts?</span>
+                    <span class="faq-icon">+</span>
+                </div>
+                <div class="faq-answer">
+                    Yes! For large projects or ongoing work, I offer custom pricing with volume discounts. Message me with your requirements and I'll provide a personalized quote that fits your budget.
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>What makes your service different?</span>
+                    <span class="faq-icon">+</span>
+                </div>
+                <div class="faq-answer">
+                    Unlike automated tools, I manually convert every file to ensure 100% accuracy. With my B.Com background in Accounts & Finance and 2+ years of experience, I understand complex financial data and business documents. My 5.0 rating and 100% response rate speak for themselves!
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Reviews -->
+    <div class="section section-alt">
+        <h2>Client Reviews (5.0 ⭐)</h2>
+        <div class="review-grid">
+            <div class="review-card">
+                <div class="review-header">
+                    <div class="reviewer-avatar">J</div>
+                    <div class="reviewer-info">
+                        <h4>jasongange</h4>
+                        <div class="stars">★★★★★</div>
+                    </div>
+                </div>
+                <p class="review-text">"Converted approx. 25 pages of pdf information into an excel file that could be uploaded to our CRM. Completed within 24hrs with no issues. Very pleased and I would work with him again."</p>
+            </div>
+            
+            <div class="review-card">
+                <div class="review-header">
+                    <div class="reviewer-avatar">G</div>
+                    <div class="reviewer-info">
+                        <h4>gocc22</h4>
+                        <div class="stars">★★★★★</div>
+                    </div>
+                </div>
+                <p class="review-text">"Quick and attentive. Thank you for helping with my project."</p>
+            </div>
+            
+            <div class="review-card">
+                <div class="review-header">
+                    <div class="reviewer-avatar">S</div>
+                    <div class="reviewer-info">
+                        <h4>samuel_bentil</h4>
+                        <div class="stars">★★★★★</div>
+                    </div>
+                </div>
+                <p class="review-text">"Yuvraj truly IMPRESSED me with his attention to detail and professionalism, consistently exceeding expectations in every aspect of the project. His quick responsiveness and proactive communication made working with him a breeze, and I couldn't be happier with the delivery time. He's my go-to man for Excel-related data analysis—HIGHLY recommend! 😊"</p>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Pricing -->
+    <div class="pricing">
+        <h2>Affordable Pricing</h2>
+        <div class="price-tag">Starting at ₹930.97</div>
+        <div class="price-details">For 25-50 pages | Fast & Reliable Service</div>
+        <p style="margin-top: 20px; font-size: 1.1em;">Custom quotes available for larger projects</p>
+        <a href="https://www.fiverr.com/s/o8mZ5eA" target="_blank" class="cta-button" style="background: white; color: #1DBF73; margin-top: 30px;">Get a Quote</a>
+    </div>
+    
+    <!-- Contact -->
+    <div class="contact" id="contact">
+        <h2>Let's Work Together</h2>
+        <p style="font-size: 1.2em; margin-bottom: 30px;">Need clean, accurate data from messy PDFs or images? I help businesses, researchers, and professionals turn uneditable documents into organised, usable Excel and Word files fast.</p>
+        
+        <div class="contact-info">
+            <p>📧 Email: <strong>yuvikr34567@gmail.com</strong></p>
+        </div>
+        
+        <div class="contact-links">
+            <a href="https://wa.me/919939014577" target="_blank" class="contact-link whatsapp">
+                <span>💬</span> WhatsApp: +91 9939014577
+            </a>
+            <a href="https://www.linkedin.com/in/yuvraj-singh-538703335" target="_blank" class="contact-link linkedin">
+                <span>💼</span> LinkedIn Profile
+            </a>
+            <a href="https://www.fiverr.com/s/o8mZ5eA" target="_blank" class="contact-link fiverr">
+                <span>🌟</span> Fiverr Profile
+            </a>
+        </div>
+        
+        <a href="https://www.fiverr.com/s/o8mZ5eA" target="_blank" class="cta-button" style="margin-top: 30px;">Hire Me on Fiverr</a>
+    </div>
+    
+    <!-- Footer -->
+    <div class="footer">
+        <p>&copy; 2025 DocFlow by Yuvraj. All rights reserved.</p>
+        <div class="footer-links">
+            <a href="https://www.fiverr.com/s/o8mZ5eA" target="_blank">Fiverr</a>
+            <a href="https://wa.me/919939014577" target="_blank">WhatsApp</a>
+            <a href="https://www.linkedin.com/in/yuvraj-singh-538703335" target="_blank">LinkedIn</a>
+            <a href="mailto:yuvikr34567@gmail.com">Email</a>
+        </div>
+        <p style="margin-top: 15px; opacity: 0.8;">Professional PDF to Excel conversion services you can trust</p>
+    </div>
+</body>
+</html>
